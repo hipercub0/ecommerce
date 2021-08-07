@@ -1,5 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-principal: #35497D;
+  --color-secundario: #fff;
+  margin: 0;
+  padding: 0;
+}
+
+.bg-principal{
+  background-color: var(--color-principal);
+}
+
 .jumbotron, .card-body, .container, .site-header{
-    font-family: 'Raleway', serif !important;
+    font-family: 'Quicksand', sans-serif !important;
 }
 
 .jumbotron .display-4{
