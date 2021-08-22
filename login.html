@@ -6,13 +6,14 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
-  <title>eMercado - Todo lo que busques está aquí</title>
+  <title>Login - eMercado</title>
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
   <!-- Bootstrap core CSS -->
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/login.css">
   <style>
     html, body{
       height: 100%;
@@ -38,16 +39,27 @@
 </head>
 
 <body class="text-center">
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 1 (Fecha de entrega: 08/08/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <div class="container">
+    <div class="card" style="position: relative; width:auto; top: 0;">
+      <h1>Login</h1>
+      <form method="POST" id="login" class="item">
+        <div class="item">
+            <label for="usuario">Nombre de usuario:</label><br>
+            <input type="text" name="usuario" id="usuario" autocomplete="off" required>
+        </div>
+
+        <div class="item">
+            <label for="password">Contraseña:</label><br>
+            <input type="password" name="password" id="password" autocomplete="off" required>
+        </div>
+
+        <button type="submit" onclick="" id="boton" class="item">Iniciar sesión</button>
+    </form>
     </div>
   </div>
 
   <script src="js/init.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <script src="js/login.js"></script>
 </body>
 </html>
