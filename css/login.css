@@ -6,6 +6,8 @@ form input {
     outline: none;
     border-color: var(--color-principal);
     border-width: 3px;
+    transition: ease-in 0.2s;
+    transition-property: background-color color;
 }
 
 form input:hover {
@@ -31,9 +33,12 @@ h1 {
     border-radius: 2rem;
     box-shadow: 0 2px 10px 3px lightgrey;
     outline: none;
+    transition: ease-in 0.2s;
+    transition-property: background-color transform;
 }
 
 #boton:hover {
+    transform: translate(0, 3px) scale(1.1);
     background-color: #ce4e8e;
 
 }
