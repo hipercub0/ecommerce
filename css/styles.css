@@ -3,12 +3,17 @@
 :root {
   --color-principal: #35497D;
   --color-secundario: #809adf;
+  --color-enfasis: #c90064;
   margin: 0;
   padding: 0;
 }
 
 .bg-principal{
   background-color: var(--color-principal);
+}
+
+.bg-secundario{
+  background-color: var(--color-secundario);
 }
 
 .jumbotron, .card-body, .container, .site-header{
