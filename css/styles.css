@@ -156,4 +156,7 @@ a.custom-card:hover {
 
 .checked {
   color: orange;
+h3.precio-articulo {
+  margin-top: 3rem;
+  font-size: 2rem;
 }
