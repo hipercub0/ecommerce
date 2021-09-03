@@ -40,10 +40,39 @@ h1 {
 #boton:hover {
     transform: translate(0, 3px) scale(1.1);
     background-color: #ce4e8e;
-
 }
 
 .container {
     background-color: transparent;
     border: none;
 }
+
+#logo {
+    width: 150px;
+    margin-top: 5vh;
+    margin-bottom: 1vh;
+}
+
+.credits {
+    color: #fff;
+    font-size: 10pt;
+    font-weight: 400;
+}
+
+.card {
+    border-radius: 50px;
+}
+
+.tippy-box[data-theme~='temita'] {
+    background-color: var(--color-enfasis2);
+    color: #fff;
+    font-weight: 700;
+    border-radius: 50px;
+    font-family: 'Quicksand', sans-serif !important;
+    box-shadow: 0 2px 5px 3px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+  }
+
+  .tippy-box[data-theme~='temita'][data-placement^='top'] > .tippy-arrow::before {
+    border-top-color: var(--color-enfasis2);
+  }
