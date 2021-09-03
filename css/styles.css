@@ -4,6 +4,7 @@
   --color-principal: #35497D;
   --color-secundario: #809adf;
   --color-enfasis: #c90064;
+  --color-enfasis2: #ce4e8e;
   margin: 0;
   padding: 0;
 }
@@ -156,6 +157,58 @@ a.custom-card:hover {
 
 .checked {
   color: orange;
+}
+
+.swal2-modal {
+  border-radius: 50px;
+  font-family: 'Quicksand', sans-serif !important;
+}
+
+#swal2-icon {
+  margin: 0;
+}
+
+#swal2-title {
+  font-size: 2.5rem;
+  padding: .5em 1em 0;
+}
+
+.swal2-styled.swal2-confirm {
+    background-color: var(--color-enfasis2);
+    color: white;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 2rem;
+    box-shadow: 0 2px 10px 3px lightgrey;
+    outline: none;
+    transition: ease-in 0.2s;
+    transition-property: background-color transform;
+}
+
+.swal2-styled.swal2-confirm:focus {
+  box-shadow: 0 2px 10px 3px lightgrey;
+}
+
+.swal2-styled.swal2-confirm:hover {
+  transform: translate(0, 3px) scale(1.1);
+  background-color: var(--color-enfasis2);
+}
+
+.swal2-icon.swal2-error{
+  border-color: var(--color-enfasis);
+  color: var(--color-enfasis);
+}
+
+.swal2-icon.swal2-error [class^="swal2-x-mark-line"]{
+  background-color: var(--color-enfasis);
+}
+
+.container[aria-hidden~='true'] {
+  filter: blur(10px);
+  transition: 0.2s filter linear;
+}
+
 h3.precio-articulo {
   margin-top: 3rem;
   font-size: 2rem;
