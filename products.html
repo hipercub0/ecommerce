@@ -34,17 +34,20 @@
       <div class="row">
         <div class="col text-right">
           <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
-            <label class="btn btn-light active" id="sortAsc">
-              <input type="radio" name="options" autocomplete="off" checked>A-Z
+            <label class="btn btn-light active" id="sortByRelevance">
+              <input type="radio" name="options" autocomplete="off"><i class="fas fa-star mr-1"></i>Más relevantes
+            </label>
+            <label class="btn btn-light" id="sortAsc">
+              <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-alpha-down mr-1"></i>A-Z
             </label>
             <label class="btn btn-light" id="sortDesc">
-              <input type="radio" name="options" autocomplete="off">Z-A
+              <input type="radio" name="options" autocomplete="off" checked><i class="fas fa-sort-alpha-down-alt mr-1"></i>Z-A
             </label>
             <label class="btn btn-light" id="sortByPriceAsc">
               <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down mr-1"></i>Mayor precio
             </label>
             <label class="btn btn-light" id="sortByPriceDesc">
-              <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-up mr-1"></i>Menor precio
+              <input type="radio" name="options" autocomplete="off"><i class="fas fa-sort-amount-down-alt mr-1"></i>Menor precio
             </label>
           </div>
         </div>
@@ -54,7 +57,7 @@
         <div class="col-md-6 col-sm-12 mb-1 container">
           <div class="row container p-0 m-0">
             <div class="col">
-              <p class="font-weight-normal text-right my-2">Cant.</p>
+              <p class="font-weight-normal text-right my-2">$</p>
             </div>
             <div class="col">
               <input class="form-control" type="number" placeholder="min." id="rangeFilterPriceMin">
