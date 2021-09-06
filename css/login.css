@@ -51,12 +51,21 @@ h1 {
     width: 150px;
     margin-top: 5vh;
     margin-bottom: 1vh;
+    fill:#fff; 
+    fill-opacity: 0.5;
+    transition: ease-out 0.3s;
+    transition-property: fill-opacity;
+}
+
+#logo:hover {
+    fill-opacity: 1;
 }
 
 .credits {
-    color: #fff;
+    color: rgba(255, 255, 255, 0.5);
     font-size: 10pt;
     font-weight: 400;
+    opacity: 1;
 }
 
 .card {
