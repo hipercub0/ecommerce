@@ -43,6 +43,8 @@ var getJSONData = function (url) {
 
 let isLoggedOn = (username !== null) ? true : false;
 
+
+// FIX
 function redireccionarLogin() {
   if (!isLoggedOn && window.location.pathname !== '/index.html') {
     window.location.replace("index.html");
@@ -63,7 +65,7 @@ function completarUsuario() {
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
 
-   redireccionarLogin();
+  //  redireccionarLogin();
    completarUsuario();
 
 });
