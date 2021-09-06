@@ -4,6 +4,7 @@ const boton = document.getElementById("boton");
 
 let redireccionar = () => {
     if (usuario.value.length > 0 && password.value.length > 0) {
+        sessionStorage.setItem('nombreUsuario', usuario.value);
         window.location.replace("home.html");
     } else {
         Swal.fire(
@@ -27,6 +28,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
         event.preventDefault();
         redireccionar();
     });
+
     tippy('#linklogo', {
         content: "Ir al repositorio de Github",
         animation: 'scale-extreme',
