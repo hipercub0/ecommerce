@@ -73,7 +73,7 @@ function showProductsList() {
                         </div>
                         <p class="mb-1">` + product.description + `</p>
                         <div class="d-flex w-100 justify-content-end">
-                            <h3 class="precio-articulo">USD ${product.cost}<h3>
+                            <h3 class="precio-articulo">${product.currency} ${product.cost}<h3>
                         </div>
                     </div>
                 </div>
