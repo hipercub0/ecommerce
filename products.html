@@ -16,8 +16,6 @@
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
   <nav class="site-header sticky-top py-1 bg-dark" id="navbar">
     <div class="container d-flex flex-column flex-md-row justify-content-between" id="navbar-content">
       <a class="py-2 d-none d-md-inline-block" href="home.html">Inicio</a>
@@ -54,11 +52,14 @@
           </div>
         </div>
       </div>
-      <div class="row justify-content-end">
-        <div class="col-md-6"></div>
-        <div class="col-md-6 col-sm-12 mb-1 container">
+      <div class="container row d-flex flex-wrap flex-row justify-content-between">
+        <div class="d-flex col-md-6 col-sm-11 mb-1 container padding-auto">
+          <input type="search" id="search-bar" class="form-control ds-input" placeholder="Busca...">
+        </div>
+
+        <div class="col-md-6 col-sm-11 mb-1 container">
           <div class="row container p-0 m-0">
-            <div class="col">
+            <div class="d-flex">
               <p class="font-weight-normal text-right my-2">$</p>
             </div>
             <div class="col">
