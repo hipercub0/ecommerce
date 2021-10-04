@@ -54,9 +54,26 @@ function redireccionarLogin() {
   }
 }
 
-function completarUsuario() {
+function mostrarNombreUsuario() {  
   document.getElementById("navbar-content").innerHTML += `
-  <a class="py-2 d-none d-md-inline-block" id="user-tab" href="my-profile.html"><i class="fas fa-user-circle mr-1" id="user-icon"></i> ${username}</a>
+  <div class="btn-group">
+  <button type="button" class="btn btn-danger">¡Hola, ${username}!</button>
+  <button type="button" class="btn btn-danger dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <div class="dropdown-menu dropdown-menu-right">
+  <a class="dropdown-item" href="cart.html"><i class="fas fa-shopping-cart" style="margin-right:.5em; color: var(--color-enfasis)"></i>Ver mi carrito</a>
+    <a class="dropdown-item" href="my-profile.html"><i class="fas fa-user-circle mr-1" style="margin-right:.5em; color: var(--color-enfasis)"></i> Mi perfil</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="logout.html"><i class="fas fa-sign-out-alt" style="margin-right:.5em; color: var(--color-enfasis)"></i>Cerrar sesión</a>
+  </div>
+</div>
+  `;
+}
+
+function mostrarBotonLogin() {
+  document.getElementById("navbar-content").innerHTML += `
+  <button type="button" class="btn btn-danger">Iniciar sesión</button>
   `;
 }
 
@@ -65,5 +82,5 @@ function completarUsuario() {
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
   //  redireccionarLogin();
-   completarUsuario();
+  mostrarNombreUsuario();
 });
