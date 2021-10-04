@@ -1,3 +1,22 @@
+// Se llama desde ShowProductInfo();
+function ShowCarousel() {
+  let carousel = document.getElementById("carousel");
+
+  carousel.innerHTML+= `
+  <div class="carousel-item active">
+    <img src="${product.images[0]}" class="d-block w-100" alt="...">
+  </div>
+  `
+
+  for (i=1; i < product.images.length; i++) {
+    carousel.innerHTML+= `
+    <div class="carousel-item">
+      <img src="${product.images[i]}" class="d-block w-100" alt="...">
+    </div>
+    `
+  }
+}
+
 function ShowProductInfo() {
   getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
     if (resultObj.status === "ok") {
@@ -8,32 +27,35 @@ function ShowProductInfo() {
       let soldCountHTML = document.getElementById("sold-count");
       let productCurrency = document.getElementById("product-currency");
       let productCost = document.getElementById("product-cost");
+      let productCategoryHTML = document.getElementById("category-name");
 
       nombreProductoHTML.innerHTML = product.name;
       productDescriptionHTML.innerHTML = product.description;
       soldCountHTML.innerHTML = product.soldCount + " vendidos";
       productCurrency.innerHTML = product.currency;
-      productCost.innerHTML += ` ${product.cost}`
+      productCost.innerHTML += ` ${product.cost}`;
+      productCategoryHTML.innerHTML = product.category;
+
+      ShowCarousel();
     }
   });
-};
-
+}
 
 function ShowRelatedProducts() {
   getJSONData(PRODUCT_INFO_URL).then(function (resultObj) {
     if (resultObj.status === "ok") {
-      product = resultObj.data;
-      htmlRelacionados = ""; // inicializo el contenido que voy a agregar al div al final
+      let product         = resultObj.data;
+      let relatedProducts = product.relatedProducts;  // array de productos relacionados
 
-      // voy a buscar los productos relacionados
-      // en la propiedad relatedProducts del json de products
+      htmlRelacionados = "" // inicializo el contenido que voy a agregar al div al final
+
+      // voy a buscar los productos relacionados en la
+      // propiedad relatedProducts del json de products
       getJSONData(PRODUCTS_URL).then(function (resultObj) {
         if (resultObj.status === "ok") {
-          let relatedProducts = product.relatedProducts;  // array de productos relacionados
-          relatedProducts.forEach(product => {            // recorro el array por cada producto
-
-            listaProductos = resultObj.data;              // lista de todos los productos
-            productoActual = listaProductos[product];     // objeto que esta recorriendo el forEach
+          let listaProductos = resultObj.data      // lista de todos los productos
+          relatedProducts.forEach(product => {     // recorro el array por cada producto
+            let productoActual = listaProductos[product];   // objeto que esta recorriendo el forEach
 
             htmlRelacionados += `<div class="card related-product">
               <img src="${productoActual.imgSrc}">
