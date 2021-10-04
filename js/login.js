@@ -4,7 +4,7 @@ const boton = document.getElementById("boton");
 
 let redireccionar = () => {
     if (usuario.value.length > 0 && password.value.length > 0) {
-        sessionStorage.setItem('nombreUsuario', usuario.value);
+        localStorage.setItem('nombreUsuario', usuario.value);
         window.location.replace("home.html");
     } else {
         Swal.fire(
