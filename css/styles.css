@@ -9,6 +9,10 @@
   padding: 0;
 }
 
+.btn {
+  border-radius: 3em;
+}
+
 .boton {
   background-color: var(--color-enfasis);
   color: white;
