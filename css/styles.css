@@ -265,6 +265,10 @@ h1#nombre-producto + hr {
   width: 100%;
 }
 
+a.category-tag {
+  text-decoration: none;
+}
+
 h5#category-name {
   background-color: transparent;
   color: var(--color-secundario);
@@ -272,7 +276,14 @@ h5#category-name {
   padding: .3em .6em;
   border-radius: 2em;
   border: solid 1px var(--color-secundario);
+  transition: all ease-out 200ms;
 }
+
+h5#category-name:hover {
+  background-color: var(--color-secundario);
+  color: white;
+}
+
 
 .alert-warning {
 	color: #fff;
@@ -379,11 +390,27 @@ div#carouselExampleControls{
 
 #star-container {
   margin: 1em;
+  display: flex;
+  flex-direction: row-reverse;
 }
 
-.estrella {
+#star-container .estrella {
+  margin: 2px;
   height: 40px;
   cursor: pointer;
+}
+
+#star-container .estrella:hover {
+  transform: 
+    scale(1.2)
+    translateY(-5px);
+  transition: all ease-out 200ms;
+}
+
+/* .parent a:not(.parent a.active ~ a) */
+
+.estrella:hover ~ .estrella path{
+  fill: white;
 }
 
 .estrella-vacia-path {
@@ -391,7 +418,7 @@ div#carouselExampleControls{
   stroke: #fff;
 }
 
-.estrella-vacia-path:hover {
+.estrella:hover path{
   fill: #fff;
 }
 
@@ -417,4 +444,25 @@ div#carouselExampleControls{
 
 .panel-comentarios h3{
   margin-bottom: 1em !important;
+}
+
+.carousel-control-prev-icon {
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='-3 -3.5 15 15' %3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e") !important;
+  left: 20%;
+}
+
+.carousel-control-next-icon {
+	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='-4 -3.5 15 15'%3e%3cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3e%3c/svg%3e") !important;
+  right: 20%;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+	display: inline-block;
+	width: 50px;
+	height: 50px;
+	background: var(--color-enfasis);
+	border-radius: 25px;
+  box-sizing: border-box;
+  box-shadow: 0 5px 10px px rgba(65, 0, 38, 0.7);
+  position: absolute;
 }
