@@ -81,7 +81,7 @@ function ShowComments() {
       comentarios = resultObj.data;
       comentarios.forEach(comment => {
         htmlParaAgregar += `
-                <div class="card comentario">
+                <div class="card comentario col-12">
                   <div class="header-comentario">
                     <div class="header-comentario-left">
                       <h5 class="nombre-usuario-comentario">${comment.user}</h5>
