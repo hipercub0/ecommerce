@@ -1,3 +1,5 @@
+var username = localStorage.getItem('nombreUsuario');
+
 // Se llama desde ShowProductInfo();
 function ShowCarousel() {
   let carousel = document.getElementById("carousel");
@@ -100,6 +102,29 @@ function ShowComments() {
       cajaDeComentarios.innerHTML = htmlParaAgregar;
     }
   });
+}
+
+function agregarComentario(){
+  let textArea = document.getElementById("comment-textarea")
+  if (textArea.value) {
+    let htmlParaAgregar = `
+    <div class="card comentario col-12">
+      <div class="header-comentario">
+        <div class="header-comentario-left">
+          <h5 class="nombre-usuario-comentario">${username}</h5>
+          <small class="text-muted">${(new Date().toLocaleString())}</small>
+        </div>
+        <!--  <div class="header-comentario-estrellas">
+          <h6>Puntuación: </h6>
+        </div> -->
+      </div>
+
+      <p class="cuerpo-comentario">${textArea.value}</p>
+    </div>
+    `
+    let cajaDeComentarios = document.getElementById("comentarios-posteados");
+      cajaDeComentarios.innerHTML += htmlParaAgregar;
+  }
 }
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
