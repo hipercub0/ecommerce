@@ -61,7 +61,7 @@ function showProductsList() {
             ((maxPrice == undefined) || (maxPrice != undefined && parseInt(product.cost) <= maxPrice))) {
 
             htmlContentToAppend += `
-            <a href="/product-info.html" class="card product-card sombra col-10 col-sm-5 col-md-3 col-lg-2 data-">
+            <a href="product-info.html" class="card product-card sombra col-10 col-sm-5 col-md-3 col-lg-2 data-">
               <img src="${product.imgSrc}" alt="${product.description}">
               <div class="product-data">
                 <small class="product-count-tag sombrita">${product.soldCount} artículos vendidos</small>
