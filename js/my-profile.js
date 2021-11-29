@@ -25,21 +25,23 @@ var datosUsuario = {
 //  FUNCTIONS  //
 /////////////////
 
+// Función que guarda los valores de los inputs dentro de las propiedades
+// de datosUsuario y después lo guarda en localStorage
 function almacenarDatos() {
     if (profile_nombre.value)
-    {datosUsuario.nombre = profile_nombre.value}
+    { datosUsuario.nombre = profile_nombre.value }
     
     if (profile_apellido.value)
-    {datosUsuario.apellido = profile_apellido.value}
+    { datosUsuario.apellido = profile_apellido.value }
     
     if (profile_edad.value > 0)
-    {datosUsuario.edad = profile_edad.value}
+    { datosUsuario.edad = profile_edad.value }
     
     if (profile_email.value)
-    {datosUsuario.email = profile_email.value}
+    { datosUsuario.email = profile_email.value }
     
     if (profile_telefono.value)
-    {datosUsuario.telefono = profile_telefono.value}
+    { datosUsuario.telefono = profile_telefono.value }
 
     localStorage.setItem('userData', JSON.stringify(datosUsuario))
 }
@@ -47,23 +49,23 @@ function almacenarDatos() {
 // Función que muestra la información almacenada en localStorage
 // en los inputs del formulario en caso de que haya datos
 function mostrarDatos() {
-    if (JSON.parse(user_data)){
+    if (JSON.parse(user_data)) {
         datosUsuario = JSON.parse(user_data)
         
         if (datosUsuario.nombre)
-        {profile_nombre.value = datosUsuario.nombre}
+        { profile_nombre.value = datosUsuario.nombre }
 
         if (datosUsuario.apellido)
-        {profile_apellido.value = datosUsuario.apellido}
+        { profile_apellido.value = datosUsuario.apellido }
 
         if (datosUsuario.edad)
-        {profile_edad.value = datosUsuario.edad}
+        { profile_edad.value = datosUsuario.edad }
 
         if (datosUsuario.email)
-        {profile_email.value = datosUsuario.email}
+        { profile_email.value = datosUsuario.email }
 
         if (datosUsuario.telefono)
-        {profile_telefono.value = datosUsuario.telefono}
+        { profile_telefono.value = datosUsuario.telefono }
     }
 }
 
@@ -84,5 +86,4 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 profile_boton.addEventListener("click", function (e) {
     almacenarDatos()
-    console.log(datosUsuario)
 });
