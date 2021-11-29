@@ -20,6 +20,11 @@
       href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i"
       rel="stylesheet"
     />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet" />
+
+    <!-- Sweetalert2 -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <!-- FA -->
     <link href="css/font-awesome.min.css" rel="stylesheet" />
@@ -27,6 +32,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/dropzone.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/cart.css">
   </head>
 
   <body>
@@ -57,26 +63,135 @@
 
       <!-- Aca van a venir los productos del carrito -->
       <!-- OJO el tamaño de las imágenes viene por el atributo style desde ShowCartInfo() en cart.js, cambiar a futuro -->
-      <div class="cart-item-container row d-flex justify-content-between" id="cart-item-container">
+      <div class="container cart-item-container" id="cart-item-container">
         
       </div>
 
       <!-- Aca van a venir el total y el tipo de envío -->
-      <div class="container row">
-        <div class="col-md-7" id="cart-info-left">
-          <h5>Tipo de envío:</h5>
-          <select name="envio" id="envio">
-            <option value="standard">Standard (12 a 15 días) - Costo: 5%</option>
-            <option value="express">Express (5-8 días) - Costo: 7%</option>
-            <option value="premium">Premium (2-5 días) - Costo: 15%</option>
-          </select>
+      <div class="cart-summary container row">
+        <ul class="list-group col-8">
+          <li class="list-group-item d-flex justify-content-between lh-condensed">
+            <div>
+              <h6 class="my-0">Subtotal</h6>
+              <small class="text-muted">Unitario del producto</small>
+            </div>
+            <span class="text-muted" id="subtotal">-</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <div>
+              <h6 class="my-0">Costo de envío</h6>
+              <small class="text-muted">Según el tipo de publicación</small>
+            </div>
+            <span class="text-muted" id="costo-envio">-</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Total</span>
+            <strong id="totalCostText">-</strong>
+          </li>
+        </ul>
+        <div class="col-4 text-center">
+          <span class="text-center">Tipo de envío:</span>
+          <div class="radiogroup-envio" role="radiogroup">
+            <input onchange="actualizarTotal()" type="radio" name="envio" value="0.05" id="envio-standard">
+            <label class="boton" for="envio-standard">
+              <i class="fas fa-shuttle-van"> +5%</i>
+            </label>
+            
+            <input onchange="actualizarTotal()" type="radio" name="envio" value="0.07" id="envio-express">
+            <label class="boton" for="envio-express">
+              <i class="fas fa-truck"> +7%</i>
+            </label>
+            
+            <input onchange="actualizarTotal()" type="radio" name="envio" value="0.15" id="envio-premium">
+            <label class="boton" for="envio-premium">
+              <i class="fas fa-shipping-fast"> +15%</i>
+            </label>
+          </div>
+          <div class="currency-swapper-container">
+            <span for="currency-swapper">
+              Cambio de moneda:</span>
+            <button class="boton" id="currency-swapper">
+              <i class="fas fa-exchange-alt"></i>
+            </button>
+          </div>
         </div>
+      </div>
+      <!-- Boton de compra -->
+      <div class="container text-center">
+        <button class="boton sombrita" id="boton-confirmar-compra" data-toggle="modal" data-target="#exampleModalCenter">Confirmar compra</button>
+        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Completar datos</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                
+                <form>
+                  <h5>Dirección</h5>
+                  <label for="calle">Calle</label>
+                  <input placeholder="Ingrese su calle" type="text" name="calle" id="calle">
+                  <br>
+                  <label for="numero-puerta">Numero de puerta</label>
+                  <input placeholder="Ingrese su número de puerta" type="text" name="numero-puerta" id="numero-puerta">
+                  <br>
+                  <label for="esquina">Esquina</label>
+                  <input placeholder="Ingrese su esquina" type="text" name="esquina" id="esquina">
+                  <br>
+                  <hr>
 
-        <div class="col-md-4" id="cart-info-right">
-          <h3>Total</h3>
+                  <h5>Método de pago</h5>
+                  <input type="radio" class="input-pago" name="metodo-pago" id="transferencia-bancaria">
+                  <label for="transferencia-bancaria">
+                    Transferencia bancaria
+                  </label>
+                  <div class="metodo-pago">
+                    <label for="banco">Banco</label>
+                    <input placeholder="Ingrese su banco" type="text" name="banco" id="banco">
+                    <br>
+                    
+                    <label for="numero-cuenta">Numero de cuenta</label>
+                    <input placeholder="Ingrese su numero de cuenta" type="text" name="numero-cuenta" id="numero-cuenta">
+                    <br>
+                  </div>
+                  <br>
+                  
+                  <input type="radio" class="input-pago" name="metodo-pago" id="tarjeta-credito">
+                  <label for="tarjeta-credito">
+                    Tarjeta de crédito
+                  </label>
+                  <div class="metodo-pago">
+                    <label for="numero-tarjeta">Número de tarjeta</label>
+                    <input placeholder="Ingrese su numero de tarjeta" type="text" name="numero-tarjeta" id="numero-tarjeta">
+                    <br>
+
+                    <label for="fecha-vencimiento">Fecha de vencimiento</label>
+                    <input type="date" name="fecha-vencimiento" id="fecha-vencimiento">
+                  </div>
+                </form>
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                <button onclick="validacionCarrito()" type="button" class="boton">Finalizar compra</button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </main>
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Volver arriba</a>
+        </p>
+        <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
+        <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+      </div>
+    </footer>
     <div id="spinner-wrapper">
       <div class="lds-ring">
         <div></div>
