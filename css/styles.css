@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
 
+* {
+  font-family: 'Quicksand', sans-serif;
+}
+
 :root {
   --color-principal: #35497D;
   --color-secundario: #809adf;
@@ -9,8 +13,7 @@
   padding: 0;
 }
 
-<<<<<<< Updated upstream
-=======
+
 @font-face {
   font-family: 'Material Icons';
   font-style: normal;
@@ -43,7 +46,6 @@
   box-shadow: 0 1px 8px 0 rgba(0,0,0,0.2);
 }
 
->>>>>>> Stashed changes
 .btn {
   border-radius: 3em;
 }
@@ -486,23 +488,84 @@ div#carouselExampleControls{
   margin-bottom: 1em !important;
 }
 
-.carousel-control-prev-icon {
-	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='-3 -3.5 15 15' %3e%3cpath d='M5.25 0l-4 4 4 4 1.5-1.5-2.5-2.5 2.5-2.5-1.5-1.5z'/%3e%3c/svg%3e") !important;
-  left: 20%;
+.product-card {
+  overflow: hidden;
+  position: relative;
 }
 
-.carousel-control-next-icon {
-	background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23fff' viewBox='-4 -3.5 15 15'%3e%3cpath d='M2.75 0l-1.5 1.5 2.5 2.5-2.5 2.5 1.5 1.5 4-4-4-4z'/%3e%3c/svg%3e") !important;
-  right: 20%;
+#prod-list-container {
+  padding-top: 1.5rem;
+  justify-content: space-evenly;
+  gap: 1px;
 }
 
-.carousel-control-next-icon, .carousel-control-prev-icon {
-	display: inline-block;
-	width: 50px;
-	height: 50px;
-	background: var(--color-enfasis);
-	border-radius: 25px;
-  box-sizing: border-box;
-  box-shadow: 0 5px 10px px rgba(65, 0, 38, 0.7);
+#prod-list-container .product-card {
+  padding: unset;
+  border-radius: 1.5rem;
+  margin-bottom: 2rem;
+  text-decoration: none;
+  transition:
+    transform .2s ease-out,
+    box-shadow .2s ease-out;
+}
+
+#prod-list-container .product-card:hover,
+#prod-list-container .product-card:focus {
+  transform: scale(1.05);
+  box-shadow: 0 1px 20px 0 rgba(0,0,0,0.2);
+}
+
+#prod-list-container .product-card:focus {
+  outline: .2rem solid var(--color-secundario);
+  outline-offset: .2rem;
+}
+
+.product-card .product-data {
+  position: relative;
+  padding-top: 2rem;
+  margin: 0 1rem;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.product-card .product-count-tag {
   position: absolute;
+  background-color: #ce4e8e;
+  color: #fff;
+  border-radius: 20px;
+  padding: 3px 8px;
+  top: 0;
+  left:50%;
+  transform: translate(-50%, -50%);
+  text-align:center;
+  white-space: nowrap;
+}
+
+.product-data .product-card-name {
+  font-size: 1.5rem;
+  line-height: 0.9em;
+  font-weight: 600;
+  color: var(--color-principal);
+}
+
+.product-card .product-card-description {
+  font-size: .9em;
+  color: var(--dark);
+}
+
+.product-card .product-card-cost {
+  position: absolute;
+  bottom:0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  color: var(--color-enfasis);
+  font-size: 1.5rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+#file-upload {
+  width: 200px;
+  height: 200px;
 }

@@ -3,7 +3,7 @@ const password = document.getElementById("password");
 const boton = document.getElementById("boton");
 
 let redireccionar = () => {
-    if (usuario.value.length > 0 && password.value.length > 0) {
+    if (usuario.value && password.value) {
         localStorage.setItem('nombreUsuario', usuario.value);
         window.location.replace("home.html");
     } else {

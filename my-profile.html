@@ -28,45 +28,86 @@
       }
     }
   </style>
-  
+
   <!-- FA -->
   <link href="css/font-awesome.min.css" rel="stylesheet">
-      
+
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
   <link href="css/dropzone.css" rel="stylesheet">
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark" id="navbar">
-    <div class="container d-flex flex-column flex-md-row justify-content-between" id="navbar-content">
-      <a class="py-2 d-none d-md-inline-block" href="home.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+  <header>
+    <nav class="site-header sticky-top py-1 bg-dark" id="navbar">
+      <div class="container d-flex flex-column flex-md-row justify-content-between" id="navbar-content">
+        <a class="py-2 d-none d-md-inline-block" href="home.html">Inicio</a>
+        <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+        <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+        <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      </div>
+    </nav>
+  </header>
+
+  <main role="main">
+    <div class="text-center p-4">
+      <h1 class="page-title">Mi perfil</h1>
+      <p class="lead">Aquí podrás acceder y modificar tu información de usuario.</p>
     </div>
-  </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
-    </div>
-  </div>
+    <form class="profile-form">
+      <label class="profile-label" for="profile-nombre">Nombre</label>
+      <br>
+      <input class="profile-input" placeholder="Ingrese su nombre" type="text" id="profile-nombre">
+      <br>
+      
+      <label class="profile-label" for="profile-apellido">Apellido</label>
+      <br>
+      <input class="profile-input" placeholder="Ingrese su apellido" type="text" id="profile-apellido">
+      <br>
+
+      <label class="profile-label" for="profile-edad">Edad</label>
+      <br>
+      <input class="profile-input" placeholder="Ingrese su edad (mín. 13)" type="number" id="profile-edad" min="13">
+      <br>
+
+      <label class="profile-label" for="profile-email">Correo electrónico</label>
+      <br>
+      <input class="profile-input" placeholder="ejemplo@ejemplo.com" type="text" id="profile-email">
+      <br>
+      
+      <label class="profile-label" for="profile-telefono">Número de teléfono</label>
+      <br>
+      <input class="profile-input" placeholder="Ingrese número de teléfono" type="text" id="profile-telefono">
+
+      <div class="col-md-8 order-md-1">
+        <label for="zip">Imágenes</label>
+        <div class="needsclick dz-clickable" id="file-upload">
+          <div class="dz-message needsclick">
+            Arrastra tus fotos aquí<br>
+          </div>
+        </div>
+      </div>
+      <button class="boton" id="profile-boton">Guardar cambios</button>
+    </form>
+
+    
+  </main>
+
   <footer class="text-muted bg-light">
     <div class="container">
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
     </div>
   </footer>
-  <div class="alert fade alert-success" role="alert" id="alertResult">
+
+  <!-- <div class="alert fade alert-success" role="alert" id="alertResult">
     <span id="resultSpan"></span>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-  </div>
+  </div> -->
+
   <div id="spinner-wrapper">
     <div class="lds-ring">
       <div></div>
@@ -80,6 +121,7 @@
   <script src="js/dropzone.js"></script>
   <script src="js/init.js"></script>
   <script src="js/my-profile.js"></script>
+
 </body>
 
 </html>
