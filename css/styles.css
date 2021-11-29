@@ -9,6 +9,41 @@
   padding: 0;
 }
 
+<<<<<<< Updated upstream
+=======
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/materialicons/v117/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2) format('woff2');
+}
+
+.material-icons {
+  font-family: unset;
+  font-family: 'Material Icons' !important;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -moz-font-feature-settings: 'liga';
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.sombrita {
+  box-shadow: 0 1px 3px 1px rgba(0,0,0,0.3);
+}
+
+.sombra {
+  box-shadow: 0 1px 8px 0 rgba(0,0,0,0.2);
+}
+
+>>>>>>> Stashed changes
 .btn {
   border-radius: 3em;
 }
@@ -17,7 +52,6 @@
   background-color: var(--color-enfasis);
   color: white;
   padding: 10px 20px;
-  margin-bottom: 20px;
   border: none;
   border-color: white;
   border-radius: 2rem;
@@ -406,9 +440,15 @@ div#carouselExampleControls{
 
 #star-container .estrella:hover {
   transform: 
-    scale(1.2)
+    scale(1.1)
     translateY(-5px);
   transition: all ease-out 200ms;
+}
+
+#comentarios-posteados {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 2em;
 }
 
 /* .parent a:not(.parent a.active ~ a) */
@@ -434,10 +474,6 @@ div#carouselExampleControls{
   padding: 1em;
   border-radius: 1em;
   color: #000;
-}
-
-.card.comentario+.card.comentario{
-  margin-top: 2em;
 }
 
 .header-comentario {
